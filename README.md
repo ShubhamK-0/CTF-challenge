@@ -1,4 +1,4 @@
-# CTF-challenge
+# CTF-Challenge
 CTF Exploitation Breakdown form Recon to Root Shell.
 
 This project involved conducting a complete penetration test on the Darkhole 2 virtual machine downloaded from VulnHub, simulating a real-world offensive security engagement. The objective was to identify, exploit, and document various security flaws in the target system.
