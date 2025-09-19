@@ -63,7 +63,8 @@ One of the most critical discoveries was the presence of a publicly accessible G
 Now to target the webpage, we had the login page. Unfortunately, this login page didn’t suffer from SQL injection commands we tried (most probably there was input sanitization) and the source code did not yield any clues. So, we went back to the ‘.git’ repository we found earlier during the nmap scan.
 
 We downloaded the /.git repository locally to our machine:
-wget -r http://192.168.139.143/.git 
+
+    wget -r http://192.168.139.143/.git 
 
 <img width="795" height="293" alt="image" src="https://github.com/user-attachments/assets/e12e9566-df1e-4c9d-a8bb-e51233cfa8c3" />
 
@@ -73,7 +74,8 @@ We then checked the git logs and came across clear credentials.
 <img width="795" height="366" alt="image" src="https://github.com/user-attachments/assets/901dbe32-86ae-4017-8149-7d1a81ff6526" />
 
 To get cleartext credentials:
-git show a4d900a
+
+    git show a4d900a
 
 # Authentication & Web Access
 Utilized those credentials to access the web application as a legit user:
