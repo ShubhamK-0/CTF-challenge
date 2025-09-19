@@ -37,12 +37,20 @@ Upon locating the target device, we did a port scanning to see available service
 <img width="877" height="382" alt="image" src="https://github.com/user-attachments/assets/e4165d1b-26df-4a7f-8aae-7219e367b9cc" />
 <img width="768" height="402" alt="image" src="https://github.com/user-attachments/assets/86e17182-90ae-4f0e-a2e3-07285cb86b9f" />
 
-aggressive scan results 2
+                 aggressive scan results 2
 
 We found that port 80 (HTTP) was open and running Apache HTTP Server 2.4.41 on Ubuntu. The scan revealed a web application at /login.php with a potential CSRF vulnerability in a form using the email field.
 
 <img width="768" height="426" alt="image" src="https://github.com/user-attachments/assets/b0b2e8ea-c03a-4beb-9f98-8a8a29315c4d" />
 
-aggressive scan results 3
+                 aggressive scan results 3
 
-One of the most critical discoveries was the presence of a publicly accessible Git repository at /.git/, which is a serious misconfiguration. This Git repo included a commit message indicating changes to login.php, hinting at manual modification and possibly weak development practices
+One of the most critical discoveries was the presence of a publicly accessible Git repository at /.git/, which is a serious misconfiguration. This Git repo included a commit message indicating changes to login.php, hinting at manual modification and possibly weak development practices.
+
+<img width="867" height="481" alt="image" src="https://github.com/user-attachments/assets/ae3b4dd0-fbab-4b44-b6e1-8799ece9530b" />
+
+                 target website 
+
+<img width="867" height="476" alt="image" src="https://github.com/user-attachments/assets/22e3cf1f-186f-480e-95df-106be4b645a1" />
+
+                 target website login page
