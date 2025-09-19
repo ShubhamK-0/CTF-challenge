@@ -10,3 +10,15 @@ The exploited vulnerabilities were mapped to OWASP Top 10 (Web/API) standards an
 Throughout the project, tools such as Kali Linux and Burp Suite were used for exploitation and post-exploitation. The end result was complete system compromise, from initial foothold to root shell.
 
 This assessment not only validated technical skills across the cyber kill chain but also emphasized the importance of secure development, access control, and configuration management.
+
+# Vulnerability Summery
+<img width="1939" height="875" alt="image" src="https://github.com/user-attachments/assets/ff987004-7dac-426a-880a-11ee0d34a683" />
+<img width="1954" height="387" alt="image" src="https://github.com/user-attachments/assets/3a3b1ad8-3b9c-4cb4-acdd-225eb208ff81" />
+
+# OWASP Top 10
+<img width="1768" height="442" alt="image" src="https://github.com/user-attachments/assets/bb9968d7-7d6f-4c4e-8634-62340d4a8f0b" />
+
+# Open SSH Port (22) Without Restriction<img width="1167" height="140" alt="image" src="https://github.com/user-attachments/assets/117ce0a5-27ed-4834-8220-2f380031c6eb" />
+
+
+
