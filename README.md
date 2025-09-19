@@ -44,12 +44,3 @@ We found that port 80 (HTTP) was open and running Apache HTTP Server 2.4.41 on U
 aggressive scan results 3
 
 One of the most critical discoveries was the presence of a publicly accessible Git repository at /.git/, which is a serious misconfiguration. This Git repo included a commit message indicating changes to login.php, hinting at manual modification and possibly weak development practices
-
-<img width="4236" height="74" alt="image" src="https://github.com/user-attachments/assets/7c8eaf75-6bc8-4951-a047-1b077af00473" />
-
-
-
-
-
-
-
