@@ -18,17 +18,27 @@ This assessment not only validated technical skills across the cyber kill chain 
 # Mapping against OWASP TOP 10
 <img width="1905" height="892" alt="image" src="https://github.com/user-attachments/assets/290bd3cc-26f6-45d4-a133-3d9d075f26bb" />
 
-# Graph (Pie chart):
-<img width="497" height="123" alt="image" src="https://github.com/user-attachments/assets/90fdca3c-f59d-4cae-9a58-daf04c4438d4" />
+# Graph (Pie chart): 
+<img width="822" height="467" alt="image" src="https://github.com/user-attachments/assets/90418fac-dfad-4f4c-8770-881597bd2e8f" />
 
 # Reconnaissance & Scanning
 # Ifconfig:
 Identify our own IP address and network interface before starting the attack.
+<img width="865" height="307" alt="image" src="https://github.com/user-attachments/assets/5d5ca892-cb1e-4b83-85cd-ad5a4425b386" />
+
 # Netdiscover: 
 We scanned the local devices around us to find our target.
+<img width="861" height="268" alt="image" src="https://github.com/user-attachments/assets/97205d08-156a-44c3-b781-189c01dfe781" />
+
 
 Upon locating the target device, we did a port scanning to see available services; using aggressive scan to identify potential exposed vulnerabilities, service versions, and the underlying operating system.
 
 # Nmap: nmap -sS -sV --version-all -O --osscan-guess -A -sC -Pn --script vuln -T5 -p 21,22,80 192.168.139.143 -oA /root/Desktop 
+<img width="877" height="382" alt="image" src="https://github.com/user-attachments/assets/e4165d1b-26df-4a7f-8aae-7219e367b9cc" />
+<img width="768" height="402" alt="image" src="https://github.com/user-attachments/assets/86e17182-90ae-4f0e-a2e3-07285cb86b9f" />
+                              aggressive scan results 2
+
+
+
 
 
