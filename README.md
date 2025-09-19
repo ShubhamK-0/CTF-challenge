@@ -92,4 +92,13 @@ id=' ORDER BY 7 -- -
 
 <img width="797" height="425" alt="image" src="https://github.com/user-attachments/assets/e73d9dff-5088-4059-950f-57364393b001" />
 
+ORDER BY 7’ gave an error. We could now be sure there wasn’t a 7th column.
+<img width="993" height="168" alt="image" src="https://github.com/user-attachments/assets/b904c3ef-73c5-4773-8cb1-1e47ae548c29" />
+
+The following command then produced the outputs shown in Figure below. 
+id=' UNION SELECT 1,2,3,4,5,6 -- -
+
+<img width="795" height="470" alt="image" src="https://github.com/user-attachments/assets/826660ea-18a9-4637-b04e-f520bdc315e7" />
+
+We noticed columns 2, 3, 5, and 6 are reflected in the user interface, indicating that these columns could be further used to dump data.
 
