@@ -86,8 +86,7 @@ We noticed there the GET parameter called ‘id=’ We manually tried sql comman
 <img width="809" height="238" alt="image" src="https://github.com/user-attachments/assets/0b111729-5e13-4638-bedd-6e4c4f4f29a1" />
 
 We mostly benefited from the UNION query. However, we needed to identify the number of columns on that target table. For that, we used the ORDER BY query to see how many columns it stored.
-id=' ORDER BY 5 -- - 
-URL Encoding: %27%20%4f%52%44%45%52%20%42%59%20%35%20%2d%2d%20%2d 
+id=' ORDER BY 5 -- -
 id=' ORDER BY 6 -- - 
 id=' ORDER BY 7 -- - 
 
