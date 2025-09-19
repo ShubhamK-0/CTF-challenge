@@ -132,6 +132,7 @@ Tried extracting more information from the ‘ssh’ table for the user credenti
     id=' UNION SELECT 1,user,pass,4,5,6 FROM ssh – -
 
 <img width="765" height="501" alt="image" src="https://github.com/user-attachments/assets/ded242f8-303d-4461-a604-75d6be90f3a3" />
+
 Found credential user ‘jehad’ using the password ‘fool’.
 
 We tried authenticating as the user ‘jehad’ using the password ‘fool’. 
@@ -145,6 +146,7 @@ We checked for bash history of the user:johad:
     cat ~/.bash_history 
 
 <img width="805" height="531" alt="image" src="https://github.com/user-attachments/assets/2ef0d893-d60e-44f6-b91e-809309cbfbee" />
+
 Here, we saw a bunch of web requests that had been made to this local port and something already running on localhost:port 9999. 
 
 Exposed Internal Web Service on Port 9999
