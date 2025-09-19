@@ -189,6 +189,9 @@ We checked bash history has a password of the user losy :
 
     cat ~/.bash_history 
 
+<img width="250" height="158" alt="image" src="https://github.com/user-attachments/assets/e0b6ccb0-a455-4191-bdb2-ee77c7ced8aa" />
+
+
 Which showed us password in clear test : gang
 
 # Privilege Escalation via sudo python3
@@ -201,7 +204,8 @@ Which showed us password in clear test : gang
 
 Flag Disclosure due to Weak File Permissions
 
-cat root.txt
+    cat root.txt
 
 <img width="805" height="458" alt="image" src="https://github.com/user-attachments/assets/992e4562-ba49-4545-a4d1-8d84ad3ac940" />
+
 Captured the flag: DarkHole{'Legend'}
